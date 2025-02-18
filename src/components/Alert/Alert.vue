@@ -1,7 +1,7 @@
 <script setup lang="ts">
-type AlertType = "info" | "error"
+export type AlertType = "info" | "error"
 
-interface AlertProps {
+export interface AlertProps {
     type: AlertType
 }
 

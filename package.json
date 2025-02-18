@@ -1,6 +1,6 @@
 {
   "name": "fir-ui",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "main": "./dist/fir-ui-kit.umd.js",
@@ -16,7 +16,7 @@
       "import": "./dist/fir-ui-kit.es.js",
       "require": "./dist/fir-ui-kit.umd.js"
     },
-    "./lib/style.css": {
+    "./dist/style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
     }
@@ -33,6 +33,7 @@
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
+    "test:e2e": "exec playwright test",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview"
@@ -42,13 +43,15 @@
   },
   "devDependencies": {
     "@histoire/plugin-vue": "0.17.17",
+    "@playwright/test": "1.50.1",
+    "@types/node": "22.13.4",
     "@vitejs/plugin-vue": "5.2.1",
     "@vue/tsconfig": "0.7.0",
     "histoire": "0.17.17",
     "typescript": "5.7.2",
     "vite": "5.4.14",
     "vite-plugin-dts": "4.5.0",
-    "vitest": "^3.0.5",
+    "vitest": "3.0.5",
     "vue-tsc": "2.2.0"
   }
 }

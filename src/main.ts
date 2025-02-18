@@ -1,3 +1,3 @@
-import Alert from './components/Alert/Alert.vue';
+export { default as Alert } from './components/Alert/Alert.vue';
 
-export { Alert };
+export type { AlertProps }  from './components/Alert/Alert.vue';
