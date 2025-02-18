@@ -1,3 +1,3 @@
 # Fir UI kit
 
-![Coverage](https://shields.io/badge/coverage-80%25-svg)
+![Coverage](https://img.shields.io/badge/coverage-80%25-svg)
