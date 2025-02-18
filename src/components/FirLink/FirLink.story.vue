@@ -8,6 +8,6 @@ import { logEvent } from 'histoire/client'
     <Story title="Link">
         <FirLink href="#" @click.prevent="logEvent('Click', $event)">
             Link
-        </FirLink> 
+        </FirLink>
     </Story>
 </template>

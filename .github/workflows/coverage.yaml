@@ -1,0 +1,53 @@
+name: Coverage
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  coverage:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ">=22.11.0"
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run tests with coverage
+        run: pnpm test:unit:coverage
+
+      - name: Extract coverage percentage
+        id: coverage
+        run: |
+          COVERAGE=$(grep -oP '"lines":{"total":\d+,"covered":\d+,"skipped":0,"pct":\K\d+\.\d+' coverage/coverage-summary.json)
+          echo "coverage_percentage=$COVERAGE" >> $GITHUB_OUTPUT
+
+      - name: Update README with coverage badge
+        run: |
+          COVERAGE_BADGE="https://img.shields.io/badge/coverage-${COVERAGE}%25-${COVERAGE_COLOR}.svg"
+          sed -i "s|https://img.shields.io/badge/coverage-[^)]*|${COVERAGE_BADGE}|" README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: update coverage badge"
+          git push

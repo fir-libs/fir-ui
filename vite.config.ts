@@ -43,7 +43,7 @@ export default defineConfig({
     globals: true,
     coverage: {
       provider: 'istanbul',
-      reporter: ['text', 'html'],
+      reporter: ['json-summary'],
       exclude: ['**/*.story.*'],
       include: ['src/**/*.{vue,ts}']
     },
