@@ -35,7 +35,7 @@ jobs:
       - name: Extract coverage percentage
         id: coverage
         run: |
-          COVERAGE=$(grep -oP '"lines":{"total":\d+,"covered":\d+,"skipped":0,"pct":\K\d+\.\d+' coverage/coverage-summary.json)
+          COVERAGE=$(grep -oP '"lines":{"total":\d+,"covered":\d+,"skipped":0,"pct":\d+' ./coverage/coverage-summary.json)
           echo "coverage_percentage=$COVERAGE" >> $GITHUB_OUTPUT
 
       - name: Update README with coverage badge
