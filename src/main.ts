@@ -1,3 +1,3 @@
-export { default as Alert } from './components/Alert/Alert.vue';
+export { default as FirLink } from './components/FirLink/FirLink.vue';
 
-export type { AlertProps }  from './components/Alert/Alert.vue';
+export type { FirLinkProps }  from './components/FirLink/FirLink.vue';
