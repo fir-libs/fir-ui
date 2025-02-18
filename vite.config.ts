@@ -1,5 +1,3 @@
-
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts';
@@ -30,6 +28,7 @@ export default defineConfig({
       vue(),
       dts({
           insertTypesEntry: true,
+          outDir: 'dist'
       }),
   ],
   histoire: {
